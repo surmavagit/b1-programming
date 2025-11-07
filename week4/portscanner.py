@@ -3,8 +3,7 @@ risky_ports = [21, 23, 3389]
 
 risk_counter = 0
 print('Scanning network devices...')
-for dev in devices:
-    openports = dev[1]
+for dev, openports in devices:
     for port in openports:
         if port in risky_ports:
             risk_counter += 1
