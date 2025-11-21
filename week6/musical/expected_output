@@ -1,0 +1,23 @@
+Welcome to Music Library Manager!
+Enter Song 1:
+Song name: Bohemian Rhapsody
+Genre: Rock
+Enter Song 2:
+Song name: Shape of You
+Genre: Pop
+Song name: Blinding Lights
+Genre: Pop
+Song name: Stairway to Heaven
+Genre: Rock
+Song name: Hotel California
+Genre: Rock
+=== YOUR MUSIC LIBRARY ===
+1. Bohemian Rhapsody (Rock)
+2. Shape of You (Pop)
+3. Blinding Lights (Pop)
+4. Stairway to Heaven (Rock)
+5. Hotel California (Rock)
+=== GENRE STATISTICS ===
+Rock: 3 songs
+Pop: 2 songs
+Most popular genre: Rock

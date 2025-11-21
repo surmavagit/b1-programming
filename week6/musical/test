@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat input | python3 muslibmanager.py > output
+
+diff expected_output output
