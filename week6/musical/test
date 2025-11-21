@@ -1,5 +1,8 @@
 #!/bin/bash
 
 cat input | python3 muslibmanager.py > output
+if [[ $? -gt 0 ]]; then
+	exit 1
+fi
 
 diff expected_output output
