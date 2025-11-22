@@ -25,6 +25,12 @@ def ask_for_input():
         song_number = song_number + 1
 
 
+def print_music_library():
+    print("=== YOUR MUSIC LIBRARY ===")
+    for i, song in enumerate(songs):
+        print(f"{i+1}. {song[0]} ({song[1]})")
+
+
 ask_for_input()
-print(songs)
+print_music_library()
 print(genre_count)
