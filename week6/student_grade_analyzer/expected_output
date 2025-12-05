@@ -1,0 +1,19 @@
+=== STUDENT RECORDS ===
+1. Alice: 85
+2. Bob: 92
+3. Charlie: 85
+4. Diana: 78
+5. Emma: 92
+6. Frank: 88
+=== CLASS STATISTICS ===
+Highest Score: 92
+Lowest Score: 78
+Average Score: 86.67
+=== UNIQUE SCORES ===
+{78, 85, 88, 92}
+Total unique scores: 4
+=== GRADE DISTRIBUTION ===
+Score 85: 2 students
+Score 92: 2 students
+Score 78: 1 student
+Score 88: 1 student
