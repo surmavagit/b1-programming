@@ -7,7 +7,7 @@ def ask_for_song(song_number):
     song_name = input("Song name:")
     song_genre = input("\nGenre:")
     song_number = song_number + 1
-    songs.append({ 'name': song_name, 'genre': song_genre })
+    songs.append((song_name, song_genre))
 
     if song_genre in genre_count:
         genre_count[song_genre] += 1
@@ -25,17 +25,16 @@ def ask_for_input():
 
 def print_report():
     print("=== YOUR MUSIC LIBRARY ===")
-    for i in range(len(songs)):
-        print(f"{i+1}. {songs[i]['name']} ({songs[i]['genre']})")
-    print("=== GENRE STATISTICS ===")
-    most_popular_genre = [0,"none"]
-    for genre in genre_count:
-        print(f"{genre}: {genre_count[genre]} songs")
-        if genre_count[genre] > most_popular_genre[0]:
-            most_popular_genre[0] = genre_count[genre]
-            most_popular_genre[1] = genre
+    counter = 1
+    for song_name, song_genre in songs:
+        print(f"{counter}. {song_name} ({song_genre})")
+        counter += 1
 
-    print(f"Most popular genre: {most_popular_genre[1]}")
+    print("=== GENRE STATISTICS ===")
+    for gen_name, gen_number in genre_count.items():
+        print(f"{gen_name}: {gen_number} songs")
+
+    print(f"Most popular genre: {max(genre_count, key=genre_count.get)}")
 
 
 ask_for_input()
