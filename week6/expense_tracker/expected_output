@@ -1,0 +1,31 @@
+=== PERSONAL EXPENSE TRACKER ===
+Enter expense 1 category:
+Enter expense 1 amount:
+Enter expense 1 date (YYYY-MM-DD):
+Enter expense 2 category:
+Enter expense 2 amount:
+Enter expense 2 date (YYYY-MM-DD):
+Enter expense 3 category:
+Enter expense 3 amount:
+Enter expense 3 date (YYYY-MM-DD):
+Enter expense 4 category:
+Enter expense 4 amount:
+Enter expense 4 date (YYYY-MM-DD):
+Enter expense 5 category:
+Enter expense 5 amount:
+Enter expense 5 date (YYYY-MM-DD):
+=== OVERALL SPENDING SUMMARY ===
+Total Spending: $152.75
+Average Expense: $30.55
+Highest Expense: $60.00 (Category: Utilities, Date: 2023-10-27)
+Lowest Expense: $12.00 (Category: Transport, Date: 2023-10-26)
+
+=== UNIQUE CATEGORIES SPENT ON ===
+{'Food', 'Transport', 'Utilities', 'Entertainment', 'Groceries'}
+Total unique categories: 5
+=== SPENDING BY CATEGORY ===
+Food: $55.00
+Transport: $12.00
+Utilities: $60.00
+Entertainment: $15.75
+Groceries: $10.00
