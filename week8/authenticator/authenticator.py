@@ -1,4 +1,5 @@
 import sys
+import hashlib
 
 
 class User:
@@ -48,7 +49,6 @@ class Database:
     def __init__(self):
         self.file = 'userdb.csv'
         self.current_user = None
-        self.users = []
         self.options = {
             'help': 'prints this help message',
             'status': 'prints current privilege level',
@@ -56,6 +56,7 @@ class Database:
             'logout': 'switches back to guest accout',
             'exit': 'exits the program'
         }
+        self.users = []
 
         try:
             with open(self.file, 'r') as csv:
@@ -81,9 +82,12 @@ class Database:
     def login(self):
         name = input('Enter your username:')
         password = input('Enter your password:')
+        h = hashlib.sha256()
+        h.update(password.encode())
+        hashed = h.digest().hex()
         for u in self.users:
             if name == u.username:
-                if u.authenticate(password):
+                if u.authenticate(hashed):
                     print(f"{name} authenticated")
                     self.current_user = u
                     return True
