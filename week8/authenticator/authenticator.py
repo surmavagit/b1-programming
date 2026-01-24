@@ -1,5 +1,6 @@
 import sys
 import hashlib
+import logging
 
 
 class User:
@@ -30,13 +31,12 @@ class User:
             return True
 
         self.__login_attempts += 1
+        if self.__login_attempts >= 3:
+            logging.warning(f"Locking account of {self.username}")
         return False
 
     def check_privileges(self):
         print(f"{'admin' if self.admin else 'standard'}")
-
-    def lock_account(self):
-        print(f"{self.username} account locked")
 
     def reset_login_attempts(self):
         self.__login_attempts = 0
@@ -76,6 +76,7 @@ class Database:
                 exit_with_msg(f"Malformed line in '{self.file}':\n{ur}")
 
     def logout(self):
+        logging.info(f"User {self.current_user.username} logged out")
         self.current_user = None
         print('Logging out...')
 
@@ -90,7 +91,17 @@ class Database:
                 if u.authenticate(hashed):
                     print(f"{name} authenticated")
                     self.current_user = u
+                    logging.info(
+                        f"User {u.username} authenticated successfully"
+                    )
                     return True
+                else:
+                    logging.warning(
+                        f"Failed login attempt for user {u.username}"
+                    )
+                    print('Wrong credentials')
+                    return False
+        logging.warning('Non-existant user login attempt')
         print('Wrong credentials')
         return False
 
@@ -141,6 +152,11 @@ def exit_with_msg(message, status=1):
 
 
 def main():
+    logging.basicConfig(
+        filename='auth.log',
+        format='%(asctime)s\t[%(levelname)s]\t%(message)s',
+        level=logging.INFO
+    )
     db = Database()
     db.run_repl()
     sys.exit(0)
